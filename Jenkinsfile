@@ -8,7 +8,6 @@ pipeline {
     stages {
         stage('Build with Gradle') {
             steps {
-                sh 'gradlew --version'
                 sh 'java -version'
                 sh 'apt install openjdk-17-jdk openjdk-17-jre || "install jdk failed"'
             }

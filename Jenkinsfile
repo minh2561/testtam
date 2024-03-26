@@ -16,11 +16,12 @@ pipeline {
             steps {
                 echo 'Deploying and cleaning'
                 sh 'docker container kill testJenkin || echo "Container does not exist"'
-                sh 'echo y | docker container prune'
+                sh 'docker container rm testJenkin'
+                sh 'docker image prune'
 				sh './gradlew clean'
                 sh './gradlew bootJar'
                 sh 'docker compose up -d'
-                sh 'docker container start testJenkin || echo "Run container success"'
+                sh 'docker container start -it testJenkin || echo "Run container success"'
             }
         }
     }

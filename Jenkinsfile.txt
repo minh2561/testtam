@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    tools { 
+        maven 'my-maven' 
+    }
+    
     stages {
         stage('Build with Gradle') {
             steps {

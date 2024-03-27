@@ -21,6 +21,7 @@ pipeline {
                 sh 'chmod +x gradlew'
                 sh 'pwd'
                 sh 'ls -la'
+                sh 'chmod +x build.sh'
                 sh './build.sh'
             }
         }

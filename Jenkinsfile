@@ -19,12 +19,9 @@ pipeline {
                 sh 'docker container rm testJenkin || echo "Can not kill container because does not exist"'
                 sh 'docker image prune || echo "Can not prune image"'
                 sh 'chmod +x gradlew'
-				sh './gradlew clean || echo "Can not gradle clean"'
                 sh 'pwd'
                 sh 'ls -la'
-                sh './gradlew bootJar'
-                sh 'docker compose up -d'
-                sh 'docker container start -it testJenkin || echo "Run container success"'
+                sh './build'
             }
         }
     }

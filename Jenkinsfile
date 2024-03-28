@@ -8,10 +8,8 @@ pipeline {
         }
         stage('Deploy Spring Boot to DEV') {
             withCredentials([usernamePassword(credentialsId: 'account', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-                steps {
-                    echo 'Deploying and cleaning'
-                    sh "sshpass -p ${PASSWORD} ssh -o StrictHostKeyChecking=no ${USERNAME} 'cd /home/minh/tesstJenkins/testtam && ./build.sh'"
-                }
+                echo 'Deploying and cleaning'
+                sh "sshpass -p ${PASSWORD} ssh -o StrictHostKeyChecking=no ${USERNAME} 'cd /home/minh/tesstJenkins/testtam && ./build.sh'"
             }
         }
     }

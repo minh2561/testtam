@@ -9,7 +9,7 @@ pipeline {
         stage('Deploy Spring Boot to DEV') {
             steps {
                 echo 'Deploying and cleaning'
-                sh "chmod +x login"
+                sh "chmod +x login.sh"
                 sh "./login.sh"
             }
         }

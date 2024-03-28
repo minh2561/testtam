@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 file_path='/home/minh/tesstJenkins/testtam'
 
+cd $file_path
 if [ ! -e "$file_path" ]; then
     echo "Tệp $file_path không tồn tại."
     git clone https://github.com/minh2561/testtam.git

@@ -1,5 +1,4 @@
-#!/bin/bash
-
+#!/usr/bin/expect -f
 set timeout -1
 spawn ssh minh@45.76.146.134
 expect "password:"
@@ -10,5 +9,6 @@ expect "$ "
 send -- "chmod +x build.sh\r"
 expect "$ "
 send -- "./build.sh\r"
+expect "$ "
 send -- "exit\r"
 expect eof

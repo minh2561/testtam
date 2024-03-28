@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 file_path='/home/minh/tesstJenkins/testtam'
 
 cd $file_path
@@ -15,4 +16,4 @@ echo 'gradlew clean'
 echo 'build jar'
 ./gradlew bootJar
 echo 'rebuild docker compose'
-docker compose up -d
+docker-compose up -d

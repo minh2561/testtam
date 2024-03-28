@@ -1,4 +1,4 @@
-#!/home/minh/tesstJenkins/testtam -f
+#!/bin/bash
 
 set timeout -1
 spawn ssh minh@45.76.146.134

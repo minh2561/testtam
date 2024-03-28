@@ -1,4 +1,4 @@
-#!/home/minh/tesstJenkins/testtam
+#!/bin/bash
 
 echo 'git pull'
 git pull

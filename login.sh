@@ -1,4 +1,4 @@
-#!/usr/bin/expect -f
+#!/home/minh/tesstJenkins/testtam -f
 
 set timeout -1
 spawn ssh minh@45.76.146.134

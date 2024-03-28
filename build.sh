@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 file_path="/home/minh/tesstJenkins"
 

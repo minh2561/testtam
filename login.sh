@@ -1,14 +1,9 @@
-#!/usr/bin/expect -f
-set timeout -1
-spawn ssh minh@45.76.146.134
-expect "password:"
-send -- "conheohong\r"
-expect "$ "
-send -- "cd /home/minh/tesstJenkins/testtam\r"
-expect "$ "
-send -- "chmod +x build.sh\r"
-expect "$ "
-send -- "./build.sh\r"
-expect "$ "
-send -- "exit\r"
-expect eof
+#!/bin/bash
+
+# Kết nối SSH và thực hiện các lệnh
+ssh minh@45.76.146.134 << EOF
+cd /home/minh/tesstJenkins/testtam
+chmod +x build.sh
+./build.sh
+exit
+EOF

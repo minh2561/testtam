@@ -8,10 +8,18 @@ pipeline {
         }
         stage('Deploy Spring Boot to DEV') {
             steps {
-                echo 'Deploying and cleaning'
-                sh 'ssh minh@178.128.24.181 '
-                sh 'pwd'
-                sh './login.sh'
+                script {
+                    def remote = [
+                        host: '178.128.24.181',
+                        user: 'minh',
+                        password: 'conheohong',
+                        allowAnyHosts: true
+                    ]
+                    sshScript remote: remote, script: "cd /home/minh/newFolder/codeTest"
+                    sshScript remote: remote, script: "git clone https://github.com/minh2561/testtam.git"
+                    sshScript remote: remote, script: "chmod +x build.sh"
+                    sshScript remote: remote, script: "./build.sh"
+                }
             }
         }
     }

@@ -9,7 +9,7 @@ pipeline {
         stage('Deploy Spring Boot to DEV') {
             steps {
                 echo 'Deploying and cleaning'
-                sh 'ssh minh@178.128.24.181 -conheohong'
+                sh 'ssh minh@178.128.24.181 '
                 sh 'pwd'
                 sh './login.sh'
             }

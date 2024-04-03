@@ -7,6 +7,7 @@ pipeline {
             }
         }
         stage('Deploy Spring Boot to DEV') {
+
             steps {
                 script {
                     def remote = [
@@ -17,6 +18,7 @@ pipeline {
                     ]
                     sshScript remote: remote, script: "cd /home/minh/newFolder/codeTest"
                     sshScript remote: remote, script: "git clone https://github.com/minh2561/testtam.git"
+                    sshScript remote: remote, script: "cd /home/minh/newFolder/codeTest/testtam"
                     sshScript remote: remote, script: "chmod +x build.sh"
                     sshScript remote: remote, script: "./build.sh"
                 }

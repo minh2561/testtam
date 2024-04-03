@@ -8,8 +8,8 @@ pipeline {
         }
         stage('Deploy Spring Boot to DEV') {
             steps {
+                echo 'connect to server'
                 sshagent(credentials: ['rsa-key']) {
-                    echo 'connect to server'
                     sh """ssh -o StrictHostKeyChecking=no minh@178.128.24.181 << END
                     docker container kill testJenkin
                     docker container rm testJenkin

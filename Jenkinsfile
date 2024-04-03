@@ -7,20 +7,18 @@ pipeline {
             }
         }
         stage('Deploy Spring Boot to DEV') {
-
             steps {
-                script {
-                    def remote = [
-                        host: '178.128.24.181',
-                        user: 'minh',
-                        password: 'conheohong',
-                        allowAnyHosts: true
-                    ]
-                    sshScript remote: remote, script: "cd /home/minh/newFolder/codeTest"
-                    sshScript remote: remote, script: "git clone https://github.com/minh2561/testtam.git"
-                    sshScript remote: remote, script: "cd /home/minh/newFolder/codeTest/testtam"
-                    sshScript remote: remote, script: "chmod +x build.sh"
-                    sshScript remote: remote, script: "./build.sh"
+                sshagent(credentials: ['rsa-key']) {
+                    sh """ssh -o StrictHostKeyChecking=no minh@178.128.24.181 << END
+                                                                                   whoami
+                                                                                   cd /home/minh/newFolder/codeTest/testtam
+                                                                                   git pull
+                                                                                   chmod +x gradlew
+                                                                                   source .bashrc
+                                                                                   chmod +x build.sh
+                                                                                   ./build.sh
+                                                                                   docker-compose up -d
+                                                                                                       """
                 }
             }
         }

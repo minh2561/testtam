@@ -10,11 +10,12 @@ pipeline {
             steps {
                 sshagent(credentials: ['rsa-key']) {
                     sh """ssh -o StrictHostKeyChecking=no minh@178.128.24.181 << END
-                                                                                   chmod +x gradlew
-                                                                                   chmod +x build.sh
-                                                                                   ./build.sh
-                                                                                   docker-compose up -d
-                                                                                                       """
+                    git pull
+                    chmod +x gradlew
+                    chmod +x build.sh
+                    ./build.sh
+                    docker-compose up -d
+                                       """
                 }
             }
         }

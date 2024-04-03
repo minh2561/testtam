@@ -1,7 +1,5 @@
 #!/bin/bash
 
-echo 'git pull'
-git pull
 echo 'gradlew clean'
 ./gradlew clean
 echo 'build jar'

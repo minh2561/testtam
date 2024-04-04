@@ -19,11 +19,11 @@ pipeline {
                         docker container kill testJenkin
                         docker container rm testJenkin
                         docker image rm testtam-app
-                        cd /path/to/your/app
+                        cd /home/minh/newFolder/codeTest/testtam
                         git pull
                         chmod +x gradlew
-                        ./gradlew clean
-                        ./gradlew bootJar
+                        chmod +x build.sh
+                        ./build.sh
                         docker-compose up -d
                         END
                         """

@@ -9,17 +9,15 @@ pipeline {
         stage('Deploy Spring Boot to DEV') {
             steps {
                 echo 'connect to server'
-                sshagent(credentials: ['rsa-key']) {
-                    sh """ssh -o StrictHostKeyChecking=no minh@178.128.24.181 << END
-                    docker container kill testJenkin
-                    docker container rm testJenkin
-                    docker image rm testtam-app
-                    git pull
-                    chmod +x gradlew
-                    chmod +x build.sh
-                    ./build.sh
-                    docker-compose up -d """
-                }
+                sh """ssh minh@178.128.24.181 << END
+                docker container kill testJenkin
+                docker container rm testJenkin
+                docker image rm testtam-app
+                git pull
+                chmod +x gradlew
+                chmod +x build.sh
+                ./build.sh
+                docker-compose up -d """
             }
         }
     }

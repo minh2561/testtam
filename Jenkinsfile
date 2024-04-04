@@ -13,6 +13,7 @@ pipeline {
                     sh """ssh -o StrictHostKeyChecking=no minh@178.128.24.181 << END
                     docker container kill testJenkin
                     docker container rm testJenkin
+                    docker image rm testtam-app
                     git pull
                     chmod +x gradlew
                     chmod +x build.sh

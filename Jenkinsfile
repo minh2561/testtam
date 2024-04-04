@@ -13,6 +13,7 @@ pipeline {
                 docker container kill testJenkin
                 docker container rm testJenkin
                 docker image rm testtam-app
+                cd /home/minh/newFolder/codeTest/testtam
                 git pull
                 chmod +x gradlew
                 chmod +x build.sh
